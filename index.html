@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>算数ドリル</title>
+  <!-- PWA設定 -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#f0f8ff">
+  <link rel="icon" href="https://via.placeholder.com/192?text=🧮" sizes="192x192"> <!-- 適当なアイコンURLか、後で置き換え -->
+  <link rel="apple-touch-icon" href="https://via.placeholder.com/192?text=🧮">
+  <!-- Service Worker登録 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW registered'))
+          .catch(err => console.log('SW error:', err));
+      });
+    }
+  </script>
+</head>
+<body style="margin:0; padding:0; height:100vh; overflow:hidden; background:#f0f8ff;">
+  <iframe 
+    src="https://あなたのアプリURL"  <!-- ← ここをStreamlit CloudのURLに置き換え！例: https://sansu-doriru.streamlit.app -->
+    style="width:100%; height:100%; border:none;"
+    allowfullscreen>
+  </iframe>
+</body>
+</html>
